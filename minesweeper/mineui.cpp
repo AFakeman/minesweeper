@@ -7,9 +7,8 @@
 //
 
 #include "mineui.hpp"
-#include <sstream>
 
-void UI::run() {
+bool UI::run() {
     while(true) {
         print();
         std::string command;
@@ -29,11 +28,11 @@ void UI::run() {
             int code = engine->click(Game::a_open, x, y);
             if(code == 1) {
                 print_lose();
-                break;
+                return false;
             }
             if(code == 2) {
                 std::cout << "You won!" << std::endl;
-                break;
+                return true;
             }
         } else if (tok_com[0] == "quest") {
             size_t x = std::stoi(tok_com[1]);
@@ -47,7 +46,7 @@ void UI::run() {
             print_mines();
         } else if (tok_com[0] == "quit") {
             std::cout << "Bye!" << std::endl;
-            break;
+            return false;
         } else {
             std::cout << "Unknown command: " << tok_com[0] << std::endl;
         }
@@ -57,8 +56,8 @@ void UI::run() {
 void UI::print() const {
     auto mask = engine->get_mask();
     auto numbers = engine->get_numbers();
-    size_t size_x = engine->get_size_x();
-    size_t size_y = engine->get_size_y();
+    auto size_x = engine->get_size_x();
+    auto size_y = engine->get_size_y();
     std::vector<std::vector<char>> result;
     for(size_t y = 0; y < size_y; y++) {
         for(size_t x = 0; x < size_x; x++) {
@@ -85,8 +84,8 @@ void UI::print_lose() const {
     auto mask = engine->get_mask();
     auto numbers = engine->get_numbers();
     auto bombs = engine->get_bombs();
-    size_t size_x = engine->get_size_x();
-    size_t size_y = engine->get_size_y();
+    auto size_x = engine->get_size_x();
+    auto size_y = engine->get_size_y();
     for(size_t y = 0; y < size_y; y++) {
         for(size_t x = 0; x < size_x; x++) {
             if(mask[x][y] == ' ') {

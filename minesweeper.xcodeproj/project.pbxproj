@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */; };
 		3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AD1D51189E004A3287 /* mineui.cpp */; };
+		3AA481B21D51C9D5004A3287 /* mineai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481B01D51C9D5004A3287 /* mineai.cpp */; };
+		3AA481B51D51DB3C004A3287 /* minemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481B31D51DB3C004A3287 /* minemanager.cpp */; };
 		3AB986BF1D44EF0300A30343 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB986BE1D44EF0300A30343 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,10 @@
 		3AA481AB1D50CFEE004A3287 /* minesweeper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = minesweeper.hpp; sourceTree = "<group>"; };
 		3AA481AD1D51189E004A3287 /* mineui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mineui.cpp; sourceTree = "<group>"; };
 		3AA481AE1D51189E004A3287 /* mineui.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mineui.hpp; sourceTree = "<group>"; };
+		3AA481B01D51C9D5004A3287 /* mineai.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mineai.cpp; sourceTree = "<group>"; };
+		3AA481B11D51C9D5004A3287 /* mineai.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mineai.hpp; sourceTree = "<group>"; };
+		3AA481B31D51DB3C004A3287 /* minemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = minemanager.cpp; sourceTree = "<group>"; };
+		3AA481B41D51DB3C004A3287 /* minemanager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = minemanager.hpp; sourceTree = "<group>"; };
 		3AB986BB1D44EF0300A30343 /* minesweeper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = minesweeper; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB986BE1D44EF0300A30343 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				3AB986BE1D44EF0300A30343 /* main.cpp */,
+				3AA481B31D51DB3C004A3287 /* minemanager.cpp */,
+				3AA481B41D51DB3C004A3287 /* minemanager.hpp */,
+				3AA481B01D51C9D5004A3287 /* mineai.cpp */,
+				3AA481B11D51C9D5004A3287 /* mineai.hpp */,
 				3AA481AD1D51189E004A3287 /* mineui.cpp */,
 				3AA481AE1D51189E004A3287 /* mineui.hpp */,
 				3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */,
@@ -130,7 +140,9 @@
 			files = (
 				3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */,
 				3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */,
+				3AA481B21D51C9D5004A3287 /* mineai.cpp in Sources */,
 				3AB986BF1D44EF0300A30343 /* main.cpp in Sources */,
+				3AA481B51D51DB3C004A3287 /* minemanager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +231,7 @@
 		3AB986C31D44EF0300A30343 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -226,6 +239,7 @@
 		3AB986C41D44EF0300A30343 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

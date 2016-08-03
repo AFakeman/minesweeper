@@ -9,14 +9,11 @@
 #include <iostream>
 #include "minesweeper.hpp"
 #include "mineui.hpp"
-
-void smart_click(Game &game_) {
-    
-}
+#include "mineai.hpp"
+#include "minemanager.hpp"
 
 int main(int argc, const char * argv[]) {
-    Game kek(10,10,10);
-    UI ui(&kek);
-    ui.run();
+    Manager man;
+    man.run();
     return 0;
 }

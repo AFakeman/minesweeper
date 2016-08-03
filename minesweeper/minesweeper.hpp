@@ -22,10 +22,11 @@ class Game {
     mask_t mask;
     numbers_t numbers;
     bool started;
-    size_t difficulty;
+    u_long difficulty;
     void generate(size_t x_, size_t y_);
     void recursive_open(size_t x_, size_t y_);
     void generate_numbers();
+    void reset_table();
     bool did_win();
 public:
     enum action {

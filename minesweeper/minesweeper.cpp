@@ -8,17 +8,31 @@
 
 #include "minesweeper.hpp"
 
-void Game::generate(size_t x_, size_t y_) {
-    for(size_t bomb = 0; bomb < difficulty; bomb++) {
-        size_t xcoord = x_;
-        size_t ycoord = y_;
-        while(xcoord == x_ && ycoord == y_) {
-            xcoord = rand() % size_x;
-            ycoord = rand() % size_y;
+void Game::reset_table() {
+    for(size_t x = 0; x < size_x; x++) {
+        for(size_t y = 0; y < size_y; y++) {
+            numbers[x][y] = 0;
+            bombs[x][y] = false;
+            mask[x][y] = '#';
         }
-        bombs[xcoord][ycoord] = true;
     }
-    generate_numbers();
+}
+
+void Game::generate(size_t x_, size_t y_) {
+    numbers[x_][y_] = 1;
+    while(numbers[x_][y_] != 0) {
+        reset_table();
+        for(u_long bomb = 0; bomb < difficulty; bomb++) {
+            auto xcoord = x_;
+            auto ycoord = y_;
+            while((xcoord == x_ && ycoord == y_) || bombs[xcoord][ycoord]) {
+                xcoord = rand() % size_x;
+                ycoord = rand() % size_y;
+            }
+            bombs[xcoord][ycoord] = true;
+        }
+        generate_numbers();
+    }
 }
 
 void Game::recursive_open(size_t x_, size_t y_) {

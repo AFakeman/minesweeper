@@ -10,6 +10,8 @@
 #define mineui_hpp
 
 #include "minesweeper.hpp"
+#include <sstream>
+
 class UI {
     Game *engine;
     void print() const;
@@ -20,6 +22,6 @@ public:
         engine = eng_;
     }
     UI() = delete;
-    void run();
+    bool run();
 };
 #endif /* mineui_hpp */
