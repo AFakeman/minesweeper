@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */; };
+		3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AD1D51189E004A3287 /* mineui.cpp */; };
 		3AB986BF1D44EF0300A30343 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB986BE1D44EF0300A30343 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = minesweeper.cpp; sourceTree = "<group>"; };
+		3AA481AB1D50CFEE004A3287 /* minesweeper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = minesweeper.hpp; sourceTree = "<group>"; };
+		3AA481AD1D51189E004A3287 /* mineui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mineui.cpp; sourceTree = "<group>"; };
+		3AA481AE1D51189E004A3287 /* mineui.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mineui.hpp; sourceTree = "<group>"; };
 		3AB986BB1D44EF0300A30343 /* minesweeper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = minesweeper; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB986BE1D44EF0300A30343 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				3AB986BE1D44EF0300A30343 /* main.cpp */,
+				3AA481AD1D51189E004A3287 /* mineui.cpp */,
+				3AA481AE1D51189E004A3287 /* mineui.hpp */,
+				3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */,
+				3AA481AB1D50CFEE004A3287 /* minesweeper.hpp */,
 			);
 			path = minesweeper;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */,
+				3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */,
 				3AB986BF1D44EF0300A30343 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +249,7 @@
 				3AB986C41D44EF0300A30343 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
