@@ -18,11 +18,13 @@ class AI {
     void print_mines() const;
     void print_lose() const;
     auto get_field() const;
+    std::ostream *ostr;
     bool verbose;
 public:
-    AI(Game *eng_, bool verb_) {
+    AI(Game *eng_, bool verb_, std::ostream *ostr_) {
         engine = eng_;
         verbose = verb_;
+        ostr = ostr_;
     }
     AI() = delete;
     bool run();

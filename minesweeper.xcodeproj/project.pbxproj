@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A7A76CC1D64D24400C2BB29 /* manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7A76CA1D64D24400C2BB29 /* manager.cpp */; };
 		3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */; };
 		3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481AD1D51189E004A3287 /* mineui.cpp */; };
 		3AA481B21D51C9D5004A3287 /* mineai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AA481B01D51C9D5004A3287 /* mineai.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A7A76CA1D64D24400C2BB29 /* manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = manager.cpp; sourceTree = "<group>"; };
+		3A7A76CB1D64D24400C2BB29 /* manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = manager.hpp; sourceTree = "<group>"; };
 		3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = minesweeper.cpp; sourceTree = "<group>"; };
 		3AA481AB1D50CFEE004A3287 /* minesweeper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = minesweeper.hpp; sourceTree = "<group>"; };
 		3AA481AD1D51189E004A3287 /* mineui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mineui.cpp; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 				3AA481B11D51C9D5004A3287 /* mineai.hpp */,
 				3AA481AD1D51189E004A3287 /* mineui.cpp */,
 				3AA481AE1D51189E004A3287 /* mineui.hpp */,
+				3A7A76CA1D64D24400C2BB29 /* manager.cpp */,
+				3A7A76CB1D64D24400C2BB29 /* manager.hpp */,
 				3AA481AA1D50CFEE004A3287 /* minesweeper.cpp */,
 				3AA481AB1D50CFEE004A3287 /* minesweeper.hpp */,
 			);
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AA481AC1D50CFEE004A3287 /* minesweeper.cpp in Sources */,
+				3A7A76CC1D64D24400C2BB29 /* manager.cpp in Sources */,
 				3AA481AF1D51189E004A3287 /* mineui.cpp in Sources */,
 				3AA481B21D51C9D5004A3287 /* mineai.cpp in Sources */,
 				3AB986BF1D44EF0300A30343 /* main.cpp in Sources */,

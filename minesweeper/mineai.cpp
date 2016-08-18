@@ -16,21 +16,21 @@ void AI::print() const {
     for(size_t y = 0; y < size_y; y++) {
         for(size_t x = 0; x < size_x; x++) {
             if(mask[x][y] == ' ') {
-                std::cout << numbers[x][y] << ' ';
+                (*ostr) << numbers[x][y] << ' ';
             } else {
-                std::cout << mask[x][y] << ' ';
+                (*ostr) << mask[x][y] << ' ';
             }
         }
-        std::cout << std::endl;
+        (*ostr) << std::endl;
     }
 }
 
 void AI::print_mines() const {
     for(auto y : engine->get_bombs()) {
         for(auto cell : y) {
-            std::cout << (cell ? 1 : 0) << " ";
+            (*ostr) << (cell ? 1 : 0) << " ";
         }
-        std::cout << std::endl;
+        (*ostr) << std::endl;
     }
 }
 
@@ -43,16 +43,16 @@ void AI::print_lose() const {
     for(size_t y = 0; y < size_y; y++) {
         for(size_t x = 0; x < size_x; x++) {
             if(mask[x][y] == ' ') {
-                std::cout << numbers[x][y] << ' ';
+                (*ostr) << numbers[x][y] << ' ';
             } else {
                 if(bombs[x][y]) {
-                    std::cout << '*' << ' ';
+                    (*ostr) << '*' << ' ';
                 } else {
-                    std::cout << mask[x][y] << ' ';
+                    (*ostr) << mask[x][y] << ' ';
                 }
             }
         }
-        std::cout << std::endl;
+        (*ostr) << std::endl;
     }
 }
 
@@ -75,14 +75,14 @@ auto AI::get_field() const {
     return result;
 }
 
-void print_field(const std::vector<std::vector<char>> &f_) {
+void print_field(const std::vector<std::vector<char>> &f_, std::ostream *ostr) {
     size_t size_x = f_.size();
     size_t size_y = f_[0].size();
     for(size_t y = 0; y < size_y; y++) {
         for(size_t x = 0; x < size_x; x++) {
-            std::cout << f_[x][y] << ' ';
+            (*ostr) << f_[x][y] << ' ';
         }
-        std::cout << std::endl;
+        (*ostr) << std::endl;
     }
 }
 
@@ -96,8 +96,8 @@ bool AI::run() {
         changed = false;
         auto field = get_field();
         if(verbose){
-            print_field(field);
-            std::cout << std::endl;
+            print_field(field, ostr);
+            (*ostr) << std::endl;
         }
         for(size_t x = 0; x < size_x; x++) {
             for(size_t y = 0; y < size_y; y++) {
@@ -122,8 +122,8 @@ bool AI::run() {
         }
         field = get_field();
         if(verbose){
-            print_field(field);
-            std::cout << std::endl;
+            print_field(field, ostr);
+            (*ostr) << std::endl;
         }
         for(size_t x = 0; x < size_x; x++) {
             for(size_t y = 0; y < size_y; y++) {
@@ -141,7 +141,7 @@ bool AI::run() {
                                 if(code == 1) {
                                     if(verbose){
                                         print_lose();
-                                        std::cout << "I lost!" << std::endl;
+                                        (*ostr) << "I lost!" << std::endl;
                                     }
                                     changed = false;
                                 } else if (code == 2) {
@@ -149,7 +149,7 @@ bool AI::run() {
                                     won = true;
                                     if(verbose) {
                                         print();
-                                        std::cout << "I won!" << std::endl;
+                                        (*ostr) << "I won!" << std::endl;
                                     }
                                 }
                                 field = get_field();
@@ -161,8 +161,12 @@ bool AI::run() {
             }
         }
     } while (changed);
-    if(!won && verbose) {
-        std::cout << "Not sure what to do here..." << std::endl;
+    if(!won) {
+        if(verbose) {
+            (*ostr) << "Not sure what to do here..." << std::endl;
+        } else {
+            print();
+        }
     }
     return won;
 }

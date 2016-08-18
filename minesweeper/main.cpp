@@ -13,7 +13,8 @@
 #include "minemanager.hpp"
 
 int main(int argc, const char * argv[]) {
-    Manager man;
-    man.run();
+    Game eng(10, 10, 10);
+    UI ui(&eng);
+    ui.run();
     return 0;
 }

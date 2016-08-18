@@ -8,49 +8,49 @@
 
 #include "mineui.hpp"
 
-bool UI::run() {
-    while(true) {
+void UI::run() {
+    CommandManager kek;
+    kek.AddCommand("click", std::function<bool(const std::vector<std::string>&)>([this](const std::vector<std::string> &tok_com){
+        size_t x = std::stoi(tok_com[1]);
+        size_t y = std::stoi(tok_com[2]);
+        int code = engine->click(Game::a_open, x, y);
+        if(code == 1) {
+            print_lose();
+            status = 1;
+            return true;
+        }
+        if(code == 2) {
+            std::cout << "You won!" << std::endl;
+            status = 2;
+            return true;
+        }
+        return false;
+    }));
+    kek.AddCommand("quest", std::function<bool(const std::vector<std::string>&)>([this](const std::vector<std::string> &tok_com){
+        size_t x = std::stoi(tok_com[1]);
+        size_t y = std::stoi(tok_com[2]);
+        engine->click(Game::a_question, x, y);
+        return false;
+    }));
+    kek.AddCommand("flag", std::function<bool(const std::vector<std::string>&)>([this](const std::vector<std::string> &tok_com){
+        size_t x = std::stoi(tok_com[1]);
+        size_t y = std::stoi(tok_com[2]);
+        engine->click(Game::a_flag, x, y);
+        return false;
+    }));
+    kek.AddCommand("bombs", std::function<bool(const std::vector<std::string>&)>([this](const std::vector<std::string> &tok_com){
+        print_mines();
+        return false;
+    }));
+    kek.AddCommand("quit", std::function<bool(const std::vector<std::string>&)>([this](const std::vector<std::string> &tok_com){
+        std::cout << "Bye!" << std::endl;
+        return true;
+    }));
+    kek.SetPrompt(std::function<void()>([this](){
         print();
-        std::string command;
-        std::vector<std::string> tok_com;
-        getline(std::cin, command);
-        std::stringstream strstream(command);
-        std::string token = "";
-        while (getline(strstream, token, ' ')) {
-            tok_com.push_back(token);
-        }
-        if(tok_com.empty()) {
-            continue;
-        }
-        if (tok_com[0] == "click") {
-            size_t x = std::stoi(tok_com[1]);
-            size_t y = std::stoi(tok_com[2]);
-            int code = engine->click(Game::a_open, x, y);
-            if(code == 1) {
-                print_lose();
-                return false;
-            }
-            if(code == 2) {
-                std::cout << "You won!" << std::endl;
-                return true;
-            }
-        } else if (tok_com[0] == "quest") {
-            size_t x = std::stoi(tok_com[1]);
-            size_t y = std::stoi(tok_com[2]);
-            engine->click(Game::a_question, x, y);
-        } else if (tok_com[0] == "flag") {
-            size_t x = std::stoi(tok_com[1]);
-            size_t y = std::stoi(tok_com[2]);
-            engine->click(Game::a_flag, x, y);
-        } else if (tok_com[0] == "bombs") {
-            print_mines();
-        } else if (tok_com[0] == "quit") {
-            std::cout << "Bye!" << std::endl;
-            return false;
-        } else {
-            std::cout << "Unknown command: " << tok_com[0] << std::endl;
-        }
-    }
+    }));
+    status = 0;
+    kek.Loop();
 }
 
 void UI::print() const {

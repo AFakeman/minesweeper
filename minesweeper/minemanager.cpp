@@ -30,7 +30,7 @@ void Manager::run() {
     u_long losses = 0;
     for(u_long i = 0; i < tries; i++) {
         game = new Game(size_x, size_y, diff);
-        ai = new AI(game, false);
+        ai = new AI(game, false, &(std::cout));
         if(ai->run()) {
             wins++;
         } else {
@@ -38,6 +38,7 @@ void Manager::run() {
         }
         delete game;
         delete ai;
+        std::cout << std::endl;
     }
     std::cout << wins << " " << losses << std::endl;
 }
