@@ -14,17 +14,20 @@
 #include <vector>
 #include <sstream>
 class CommandManager {
-    typedef std::function<bool(const std::vector<std::string>&)> func;
-    std::map<std::string, func> commands;
-    std::function<void()> prompt;
-    bool status;
-public:
-    CommandManager() = default;
-    auto ProcessCommand(const std::string &command);
-    void AddCommand(const std::string &com, const func &fun);
-    void Loop();
+ public:
+    typedef std::function<bool(const std::vector<std::string>&)> func_t;
+  
+    std::pair<std::string, bool> ProcessCommand(const std::string &command);
+  
+    void AddCommand(const std::string &com, const func_t &fun);
     void SetPrompt(std::function<void()> pr_) {
-        prompt = pr_;
+      prompt = pr_;
     }
+    void Loop();
+  
+ private:
+  std::map<std::string, func_t> commands;
+  std::function<void()> prompt;
+  bool status;
 };
 #endif /* manager_hpp */

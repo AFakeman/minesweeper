@@ -13,20 +13,18 @@
 #include <vector>
 
 class AI {
-    Game *engine;
-    void print() const;
-    void print_mines() const;
-    void print_lose() const;
-    auto get_field() const;
-    std::ostream *ostr;
-    bool verbose;
-public:
-    AI(Game *eng_, bool verb_, std::ostream *ostr_) {
-        engine = eng_;
-        verbose = verb_;
-        ostr = ostr_;
-    }
-    AI() = delete;
-    bool run();
+ public:
+  AI(Game *eng_, bool verb_, std::ostream *ostr_);
+  bool run();
+  
+ private:
+  void print() const;
+  void print_mines() const;
+  void print_lose() const;
+  auto get_field() const;
+  
+  Game *engine;
+  std::ostream *ostr;
+  bool verbose;
 };
 #endif /* mineai_hpp */

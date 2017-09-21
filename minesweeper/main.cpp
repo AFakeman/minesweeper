@@ -13,8 +13,9 @@
 #include "minemanager.hpp"
 
 int main(int argc, const char * argv[]) {
-    Game eng(10, 10, 10);
-    UI ui(&eng);
-    ui.run();
-    return 0;
+  srand((unsigned)time(NULL));
+  Game eng(10, 10, 10);
+  UI ui(&eng);
+  ui.run();
+  return 0;
 }

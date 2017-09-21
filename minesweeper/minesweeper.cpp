@@ -72,31 +72,14 @@ bool Game::did_win() {
     return true;
 }
 
-Game::Game(size_t x_, size_t y_, size_t diff_) {
-    srand((unsigned)time(NULL));
-    size_x = x_;
-    size_y = y_;
-    started = false;
-    difficulty = diff_;
-    for(size_t x = 0; x < x_; x++) {
-        bombs.push_back(std::vector<bool>());
-        for(size_t y = 0; y < y_; y++) {
-            bombs[x].push_back(false);
-        }
-    }
-    for(size_t x = 0; x < x_; x++) {
-        mask.push_back(std::vector<char>());
-        for(size_t y = 0; y < y_; y++) {
-            mask[x].push_back('#');
-        }
-    }
-    for(size_t x = 0; x < x_; x++) {
-        numbers.push_back(std::vector<size_t>());
-        for(size_t y = 0; y < y_; y++) {
-            numbers[x].push_back(0);
-        }
-    }
-}
+Game::Game(size_t x_, size_t y_, size_t diff_)
+      : bombs(x_, std::vector<bool>(y_, false)),
+        mask(x_, std::vector<char>(y_, '#')),
+        numbers(x_, std::vector<size_t>(y_, 0)),
+        size_x(x_),
+        size_y(y_),
+        started(false),
+        difficulty(diff_) {}
 
 int Game::click(action act_, size_t x_, size_t y_) {
     if(mask[x_][y_] == ' ') {
@@ -136,16 +119,4 @@ int Game::click(action act_, size_t x_, size_t y_) {
             }
             return 0;
     }
-}
-
-const Game::field_t &Game::get_bombs() const {
-    return bombs;
-}
-
-const Game::numbers_t &Game::get_numbers() const {
-    return numbers;
-}
-
-const Game::mask_t &Game::get_mask() const {
-    return mask;
 }

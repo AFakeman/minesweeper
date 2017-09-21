@@ -7,7 +7,7 @@
 //
 
 #include "manager.hpp"
-auto CommandManager::ProcessCommand(const std::string &command) {
+std::pair<std::string, bool> CommandManager::ProcessCommand(const std::string &command) {
     std::vector<std::string> tok_com;
     std::stringstream strstream(command);
     std::string token = "";
@@ -28,7 +28,7 @@ auto CommandManager::ProcessCommand(const std::string &command) {
 }
 
 void CommandManager::Loop() {
-    auto result = ProcessCommand("");
+    std::pair<std::string, bool> result = ProcessCommand("");
     status = false;
     do {
         prompt();
@@ -43,7 +43,7 @@ void CommandManager::Loop() {
     } while (!status);
 }
 
-void CommandManager::AddCommand(const std::string &com, const func &fun) {
+void CommandManager::AddCommand(const std::string &com, const func_t &fun) {
     if(commands.find(com) != commands.end()) {
         throw std::exception();
     }

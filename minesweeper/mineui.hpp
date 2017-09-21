@@ -14,17 +14,18 @@
 #include "manager.hpp"
 
 class UI {
-    Game *engine;
-    int status;
-    void print() const;
-    void print_mines() const;
-    void print_lose() const;
-public:
-    UI(Game *eng_) {
-        engine = eng_;
-        status = -1;
-    }
-    UI() = delete;
-    void run();
+ public:
+  UI(Game *eng_)
+    : engine(eng_),
+      status(-1) {}
+  
+  void run();
+
+ private:
+  Game *engine;
+  int status;
+  void print() const;
+  void print_mines() const;
+  void print_lose() const;
 };
 #endif /* mineui_hpp */
